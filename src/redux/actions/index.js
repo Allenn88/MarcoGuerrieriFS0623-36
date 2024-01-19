@@ -1,23 +1,23 @@
-/* 
-
-
-import axios from 'axios';
+export const GET_SONG = 'GET_SONG';
 
 const apikey = '71e77567f7msh51f9c14c4bd1592p106c39jsn9269e4c33e0e';
-const apiHost = 'deezerdevs-deezer.p.rapidapi.com';
+const apiHost = 'https://striveschool-api.herokuapp.com/api/deezer/search?q=';
 
-const options = {
-  method: 'GET',
-  url: 'https://deezerdevs-deezer.p.rapidapi.com/infos',
-  headers: {
-    'X-RapidAPI-Key': {apikey},
-    'X-RapidAPI-Host': {apiHost}
-  }
+export const getSongAction = (query) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(apiHost + query + '&limit=20');
+      if (response.ok) {
+        const { data } = await response.json();
+        dispatch({
+          type: GET_SONG,
+          payload: data,
+        });
+      } else {
+        alert('Error fetching results');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 };
-
-try {
-	const response = await axios.request(options);
-	console.log(response.data);
-} catch (error) {
-	console.error(error);
-} */

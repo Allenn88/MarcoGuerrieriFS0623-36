@@ -4,13 +4,24 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../style/Mynavbar.css";
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Sidebar = ({ img }) => {
+  const [query, setQuery] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    console.log(`Ricerca per: ${query}`);
+    navigate(`/Artist?search=${query}`);
+  };
+
+
   return (
-    <div className="d-flex flex-column bg-black" style={{ height: '100vh', width: '20%' }}>
+    <div className='Navbar bg-black d-flex flex-column' style={{ height: '100vh', width: '20%', position: 'fixed', zIndex: 1001 }}>
       <nav className="navbar navbar-expand-lg navbar-expand-md navbar-white bg-navbar">
         <div className="nav-container">
-          <a className="navbar-brand" href="index.html">
+          <a className="navbar-brand" href="/">
             <img src={img} alt="Spotify_Logo" width="131" height="40" />
           </a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,15 +31,14 @@ const Sidebar = ({ img }) => {
             <div className="navbar-nav">
               <ul className='text-decoration-none list-unstyled'>
                 <li>
-                  <a className="nav-item nav-link text-white" href="index.html">
+                  <a className="nav-item nav-link text-white" href="/">
                     <i className="fas fa-home fa-lg"></i>&nbsp; Home
                   </a>
                 </li>
                 <li>
                   <a className="nav-item nav-link text-white" href="/">
                     <i className="bi bi-book"></i> Your Library</a>
-                  <Search />
-
+                    <Search onSearch={handleSearch} />
                 </li>
               </ul>
             </div>
@@ -53,7 +63,6 @@ const Sidebar = ({ img }) => {
           <a href="/" className="text-white">Privacy</a>
         </div>
       </div>
-
     </div>
   );
 };

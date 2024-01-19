@@ -1,31 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
-    return (
-        <div className="input-group mt-3">
-            <input
-                type="text"
-                className="form-control mb-2"
-                id="searchField"
-                placeholder="Search"
-                aria-label="Search"
-                aria-describedby="basic-addon2"
-            />
-            <div
-                className="input-group-append"
-                style={{ marginBottom: '4%' }} 
-            >
-                <button
-                    className="btn btn-outline-secondary btn-sm"
-                    type="button"
-                    id="button-addon1"
-                   /*  onClick={search}  */
-                >
-                    GO
-                </button>
-            </div>
-        </div>
-    );
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearch = async () => {
+    try {
+      const response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/deezer/search?q=${searchTerm}`,
+        {
+          method: 'GET',
+          headers: {
+            'X-RapidAPI-Key': '71e77567f7msh51f9c14c4bd1592p106c39jsn9269e4c33e0e',
+            'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com',
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      navigate('/Artist', { state: { searchResults: data.data } });
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  return (
+    <div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSearch();
+        }}
+      >
+        <label>
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </label>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  );
 };
 
 export default Search;

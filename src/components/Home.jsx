@@ -48,7 +48,7 @@ function SpotyHome() {
   }
 
   return (
-    <Container>
+    <Container className='bg-primary'style={{ width: '80%', height: '100vh', marginLeft: '20vh'}}>
     <Row className="justify-content-start">
       <Col xs="12" className="text-left">
         <h1 className="mt-4 mb-4">Queen</h1>
