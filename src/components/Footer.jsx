@@ -2,7 +2,7 @@ import React from 'react';
 import '../style/Footer.css';
 
 const Footer = ({ image1, image2, image3, image4, image5 }) => (
-  <div className="container-fluid fixed-bottom bg-black Player" style={{ position: 'fixed', zIndex: 1000, marginLeft: '233px' }}>
+  <div className="container-fluid fixed-bottom bg-black Player" style={{ position: 'fixed', zIndex: 1000,}}>
     <div className="row justify-content-center align-items-center ms-2 ms-md-5">
       <a href="/" className="col-auto m-2 m-md-3">
         <img src={image1} alt="play3" className="img-fluid" />
