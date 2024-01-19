@@ -40,11 +40,12 @@ const Search = () => {
         <label>
           <input
             type="text"
+            className='mb-2'
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </label>
-        <button type="submit">Search</button>
+        <button type="submit" className='btn btn-outline-secondary btn-sm'>Go</button>
       </form>
     </div>
   );

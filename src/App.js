@@ -11,8 +11,7 @@ import image2 from './assets/Previous.png';
 import image3 from './assets/Play.png';
 import image4 from './assets/Next.png';
 import image5 from './assets/Repeat.png';
-/* import SpotySearch from './components/Artist.jsx';
- */
+import Album from './components/Album.jsx';
 
 function App() {
   return (
@@ -23,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path='/Artist' element={<Artist />} />
+          <Route path='/Album' element={<Album />} />
         </Routes>
         <Footer
           image1={image1}

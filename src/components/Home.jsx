@@ -48,16 +48,16 @@ function SpotyHome() {
   }
 
   return (
-    <Container className='bg-primary'style={{ width: '80%', height: '100vh', marginLeft: '20vh'}}>
+    <Container style={{ width: '80%', height: '100vh', marginLeft: '20vh'}}>
     <Row className="justify-content-start">
       <Col xs="12" className="text-left">
-        <h1 className="mt-4 mb-4">Queen</h1>
+        <h1 className="mt-4 mb-4 text-white">Queen</h1>
       </Col>
     </Row>
     <Row className="justify-content-center">
       {data.map((item) => (
         <Col key={item.artist.id} md={3}>
-          <Card style={{ width: '14rem', margin: '0 10px', cursor: 'pointer' }} onClick={() => window.open(item.link, '_blank')}>
+          <Card style={{ width: '14rem', margin: '0 10px', cursor: 'pointer' }} onClick={() => window.open(`/Artist?id=search=Queen`, '_blank')}>
             <Card.Img
               variant="top"
               src={item.album.cover_medium}

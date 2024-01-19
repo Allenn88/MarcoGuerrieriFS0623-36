@@ -2,22 +2,22 @@ import React from 'react';
 import '../style/Footer.css';
 
 const Footer = ({ image1, image2, image3, image4, image5 }) => (
-  <div className="container-fluid fixed-bottom bg-black Player" style={{ position: 'fixed', zIndex: 1000,}}>
+  <div className="container-fluid fixed-bottom bg-black palyerControls" style={{ position: 'fixed', zIndex: 1000,}}>
     <div className="row justify-content-center align-items-center ms-2 ms-md-5">
       <a href="/" className="col-auto m-2 m-md-3">
-        <img src={image1} alt="play3" className="img-fluid" />
+        <img src={image1} alt="play3" className='playerControls'/>
       </a>
       <a href="/" className="col-auto m-2 m-md-3">
-        <img src={image2} alt="play2" className="img-fluid" />
+        <img src={image2} alt="play2" className='playerControls'/>
       </a>
       <a href="/" className="col-auto m-2 m-md-3">
-        <img src={image3} alt="play1" className="img-fluid" />
+        <img src={image3} alt="play1" className='playerControls'/>
       </a>
       <a href="/" className="col-auto m-2 m-md-3">
-        <img src={image4} alt="play4" className="img-fluid" />
+        <img src={image4} alt="play4" className='playerControls'/>
       </a>
       <a href="/" className="col-auto m-2 m-md-3">
-        <img src={image5} alt="play5" className="img-fluid" />
+        <img src={image5} alt="play5" className='playerControls'/>
       </a>
     </div>
     <div className="row justify-content-center playBar py-3">

@@ -36,7 +36,7 @@ function SpotySearch() {
           <div key={result.id} style={{ margin: '10px', display: 'flex', alignItems: 'center' }}>
             <ul style={{ listStyle: 'none', marginRight: '10px' }}>
               <li>
-                <p>{index + 1}</p>
+                <p className='text-white'>{index + 1}</p>
               </li>
             </ul>
             <a href="/">
@@ -48,8 +48,8 @@ function SpotySearch() {
               />
             </a>
             <div>
-              <p>Titolo: {result.title}</p>
-              <p>Album: {result.album.title}</p>
+              <p className='text-white'>Titolo: {result.title}</p>
+              <p className='text-white'>Album: {result.album.title}</p>
             </div>
           </div>
         ))}
