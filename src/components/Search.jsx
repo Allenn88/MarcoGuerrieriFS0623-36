@@ -8,7 +8,7 @@ const Search = () => {
   const handleSearch = async () => {
     try {
       const response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/deezer/search?q=${searchTerm}`,
+        `https://deezerdevs-deezer.p.rapidapi.com/search?q=${searchTerm}`,
         {
           method: 'GET',
           headers: {
@@ -23,7 +23,7 @@ const Search = () => {
       }
 
       const data = await response.json();
-      navigate('/Artist', { state: { searchResults: data.data } });
+      navigate('/SpotySearch', { state: { searchResults: data.data } });
     } catch (error) {
       console.error('Error fetching data:', error);
     }

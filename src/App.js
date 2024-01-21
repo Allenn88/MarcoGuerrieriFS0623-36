@@ -6,12 +6,14 @@ import Home from './components/Home.jsx';
 import img from "./assets/Spotify_Logo.png";
 import Footer from "./components/Footer.jsx";
 import Header from "./components/Header.jsx";
-import Artist from "./components/Artist.jsx";import image1 from "./assets/Shuffle.png";
+import image1 from "./assets/Shuffle.png";
 import image2 from './assets/Previous.png';
 import image3 from './assets/Play.png';
 import image4 from './assets/Next.png';
 import image5 from './assets/Repeat.png';
 import Album from './components/Album.jsx';
+import SpotySearch from './components/SpotySearch.jsx';
+
 
 function App() {
   return (
@@ -21,8 +23,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path='/Artist' element={<Artist />} />
-          <Route path='/Album' element={<Album />} />
+          <Route path='/SpotySearch' element={<SpotySearch />} />
+          <Route path="/Album/:id" element={<Album />} />
         </Routes>
         <Footer
           image1={image1}
