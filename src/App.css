@@ -19,4 +19,12 @@ body{
     background-color: #414141;
     height: 3px;
   }
+  .like-icon {
+    color: #ccc; 
+    cursor: pointer;
+    margin-right: 8px;
+  }
   
+  .like-icon.liked {
+    color: red; 
+  }

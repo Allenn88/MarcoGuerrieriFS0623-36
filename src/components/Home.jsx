@@ -48,9 +48,11 @@ function Home() {
     return <p>Errore: {error}</p>;
   }
 
-  const handleImageClick = (artistId) => {
-    navigate(`/SpotySearch/${artistId}`);
+  const handleImageClick = (albumId) => {
+    console.log("Album ID:", albumId);
+    navigate(`/Album/${albumId}`);
   };
+
 
   return (
     <Container style={{ width: '80%', height: '100vh', marginLeft: '20vh' }}>
@@ -62,7 +64,7 @@ function Home() {
       <Row className="justify-content-center">
         {data.map((item) => (
           <Col key={item.id} md={3}>
-            <div style={{ width: '14rem', margin: '0 10px', cursor: 'pointer' }} onClick={() => handleImageClick(item.id)}>
+            <div style={{ width: '14rem', margin: '0 10px', cursor: 'pointer' }} onClick={() => handleImageClick(item.album.id)}>
               <div style={{ overflow: 'hidden' }}>
                 <img
                   variant="top"
